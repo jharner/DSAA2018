@@ -17,7 +17,7 @@
 \let\code=\texttt
 
 
-\title{Biostatistics Computing}
+\title{Data Science Workflows Using R and Spark}
 
 \author{E. James (Jim) Harner}
 \institute[West Virginia University]{

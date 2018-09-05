@@ -3,6 +3,11 @@ metastore_db
 *.aux
 *.log
 *.out
+*.tex
+*.nav
+*.snm
+*.gz
+*.toc
 *.fls
 *.html
 *.nb.html
