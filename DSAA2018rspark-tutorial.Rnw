@@ -58,7 +58,7 @@
   % You might wish to add the option [pausesections]
 \end{frame}
 
-\section{Introduction}
+\section{Fundamentals}
 
 \begin{frame}[containsverbatim]
   \frametitle{What is a Data Scientist?}
@@ -74,8 +74,6 @@ Josh Wills:\\
 \end{center}
 \end{frame}
 
-\section{Data Science Process}
-
 \begin{frame}[containsverbatim]
   \frametitle{Data Science Process}
 The \href{http://www.stat.wvu.edu/~jharner/biostatistics/workflow.html}{data science process} is a workflow from data extraction to data products:
@@ -83,6 +81,8 @@ The \href{http://www.stat.wvu.edu/~jharner/biostatistics/workflow.html}{data sci
   \includegraphics[height=0.75\textheight]{figures/DataScienceProcess.png}
 \end{center}
 \end{frame}
+
+\section{Data Sources}
 
 \begin{frame}[containsverbatim]
   \frametitle{Programming Languages}
@@ -147,6 +147,8 @@ Garrett Grolemund's and Hadley Wickham's \href{http://r4ds.had.co.nz}{R for Data
 \end{center}
 \end{frame}
 
+\section{Data Transformations}
+
 \begin{frame}[containsverbatim]
   \frametitle{Machine Learning Algorithms}
 \href{http://www.stat.wvu.edu/~jharner/biostatistics/ml_basics.html}{Machine learning algorithms} are largely used to predict, classify, or cluster.
@@ -173,8 +175,6 @@ Reproducible research can be done using R markdown documents or R notebooks. R m
 
 \end{frame}
 
-\section{Architectures}
-
 \begin{frame}[containsverbatim]
   \frametitle{Open Source Big Data Architectures}
 What data architecture is needed for big data analytics?\\
@@ -188,6 +188,8 @@ What data architecture is needed for big data analytics?\\
 
 How do we access these big data processing architectures? From an R perspective: \href{https://www.rstudio.com}{RStudio}.
 \end{frame}
+
+\section{Hadoop}
 
 \begin{frame}[containsverbatim]
   \frametitle{HDFS/ Hadoop}
@@ -209,6 +211,8 @@ It would be possible to create a virtual cluster (even on your laptop) having a 
 \includegraphics[height=0.85\textheight]{figures/StreamArch.png} 
 \end{frame}
 
+\section{Spark}
+
 \begin{frame}[containsverbatim]
   \frametitle{YARN/ Spark}
 
@@ -222,8 +226,6 @@ For example, see:\\
 \href{http://www.stat.wvu.edu/~jharner/biostatistics/slump.html}{Slump Regressopm}
 
 \end{frame}
-
-\section{RStudio}
 
 \begin{frame}[containsverbatim]
   \frametitle{RStudio Server}
@@ -273,6 +275,27 @@ Version control allows the coordination of team work and benefits individual wor
 
 \end{frame}
 
+\section{Supervised Learning}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Projects}
+  
+RStudio allows the creation of projects.\\
+\vspace{0.2cm}
+RStudio projects can be created:
+\begin{itemize}
+	\item in a new directory;
+	\item from an existing directory containing R code and data;
+	\item from a version control Git or Subversion directory. 
+\end{itemize}
+RStudio has support for multiple simultaneous projects.\\
+\vspace{0.2cm}
+Version control allows the coordination of team work and benefits individual work.
+
+\end{frame}
+
+\section{Unsupervised Learning}
+
 \begin{frame}[containsverbatim]
   \frametitle{Git/ GitHub}
   
@@ -284,32 +307,6 @@ GitHub is a web-based Git repository and Internet hosting service.\\
 \vspace{0.2cm}
 I have a repo for building a virtual \href{https://github.com/jharner/rspark}{R/ Hadoop/ Spark cluster environment} which mimics the BUDA cluster.\\
 
-\end{frame}
-
-\section{Jupyter}
-
-\begin{frame}[containsverbatim]
-  \frametitle{JupyterLab}
-
-\href{https://jupyterlab.readthedocs.io/en/stable/}{JupyterLab} is a web-based interface for the Jupyter Project allowing you to work with documents and activities such as Jupyter notebooks, terminals, etc. in a flexible, integrated, and extensible manner. These documents and workflows allow interactive computing by:
-\begin{itemize}
-	\item code consoles;
-	\item kernel-backed documents Python, R, Julia, etc.)
-	\item notebook cell mirroring;
-	\item multiple document views
-\end{itemize}
-
-If you are doing more traditional high-performance computing, you might want to consider \href{https://julialang.org/}{Julia}. It has parallelism out of the box.
-  
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{JupyterHub}
-
-\href{https://jupyterhub.readthedocs.io/en/stable/}{JupyterHub} is a multi-user Hub for spawning and managing multiple instances of the single-user Jupyter notebook server.\\
-\vspace{0.2cm}
-JupyterHub can be scaled and managed by \href{https://zero-to-jupyterhub-with-kubernetes.readthedocs.io/en/latest/create-k8s-cluster.html}{Kubernetes} in a cloud-based cluster environment.
-  
 \end{frame}
 
 \end{document}
