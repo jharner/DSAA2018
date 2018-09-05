@@ -5,7 +5,6 @@ date: "6/25/2018"
 output:
   html_document: default
   html_notebook: default
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -22,9 +21,9 @@ Linux manages the communication between your software and your hardware resource
 
 Linux OS has a number of components, including:  
 
-* the kernel: manages the CPU, memory, devices, etc.;   
-* daemons: run background processes at start up or those initiated by the user;  
-* the shell: allows you to issue commands (the bash shell in our case).  
+* the kernel for managing the CPU, memory, devices, etc.;   
+* daemons for running background processes at start up or those initiated by the user;  
+* the shell for issuing commands (the bash shell in our case).  
 
 You have access to the `bash` shell in RStudio by selecting the `Shell...` menu item from the `Tools` menu or simply by clicking in the `Terminal` tab in the `Console Pane`.
 
@@ -36,8 +35,6 @@ The Linux kernel executes command line tools consisting of several types.
 * shell functions, i.e., functions that are executed by the bash shell.  
 
 Commands are typed into a shell. In our case we will be using the `bash` shell, or "born again shell." The original UNIX shell was called `sh` and hence the name for the improved shell we now use.
-
-We will use the binary executable `psql` in Section 2.4. R scripts associated with Hadoop are run in this Chapter 4.
 
 ### 1.3.2 Files and Directories
 
@@ -54,7 +51,7 @@ ls
 ```
 `pwd` prints the working directory, which is the directory containing the file we opened, i.e., `linux.Rmd`. We then change directory (`cd`) to the home (login) directory using the `HOME` environmental variable, also denoted by `~`. You should now be in the directory `/home/rstudio`, where `rstudio` is your login name. The directory contents is given by `ls`, which lists the files and sub-directories in your home directory.
 
-Once you go to another bash or R code chunk, you are back in the directory containing the file you are editing, i.e., `linux.Rmd` here. Let's get more detail on the files and directories in your working directory. This can be done using the `-al` options with `ls`, or `ls -a -l` if you prefer. Also, let's list the files in your home directory without changing directories.
+Once you go to another bash or R code chunk, you are back in the directory containing the file you are editing, i.e., `linux.Rmd` here. Let's get more detail on the files and directories in your working directory. This can be done using the `-al` options with `ls`, or `ls -a -l` if you prefer. Also, let's list the files in your home directory without changing directories (your output will differ from my login directory).
 ```{bash}
 ls -al
 
@@ -63,11 +60,11 @@ ls -al $HOME
 ```
 The option `-a` causes `ls` to list all files and directories, including those that are normally hidden, whereas `-l` invokes the long format (`l`), which gives the permissions and other information about the owner, group, size, modification date, time, etc. The file and directory names are given in the last column of the output. 
 
-Lines beginning with a `d` indicate a directory, whereas those beginning with a `-` indicate a file. For example, `rspark-notes`, is the directory containing the course notes. Files or directories beginning with a `.` are hidden, e.g., `.bash_history` is a hidden file, whereas `.rstudio` is a hidden directory. There are two special hidden directories: `.` refers to the current directory and `..` is its parent. A common use case for `..` is to type `cd ..` to move up one level in the directory hierarchy.
+Lines beginning with a `d` indicate a directory, whereas those beginning with a `-` indicate a file. For example, `DSAA2018rspark-tutorial`, is the directory containing the tutorial notes. Files or directories beginning with a `.` are hidden, e.g., `.bash_history` is a hidden file, whereas `.rstudio` is a hidden directory. There are two special hidden directories: `.` refers to the current directory and `..` is its parent. A common use case for `..` is to type `cd ..` to move up one level in the directory hierarchy.
 
-We often use `.`, current directory, to execute interpreted scripts, e.g., `./start.sh build` to build the Docker containers for rspark from Docker Hub (see Section 1.3.3 below). Here `start` is the name of the bash script with the extension `.sh`. An R script has `.R` as the extension.
+We often use `.`, current directory, to execute interpreted scripts, e.g., `./start.sh` to launch the Docker containers for `rspark` from Docker Hub (see Section 1.3.3 below). Here `start.sh` is the name of the bash script with the extension `.sh`. An R script has `.R` as the extension.
 
-The permission string is given by the first 10 characters in each output line. After the first character, we have permissions (file/directory modes) in three sequences of three characters each. For example, for `rspark-notes`: 
+The permission string is given by the first 10 characters in each output line from `ls -al`. After the first character, we have permissions (file/directory modes) in three sequences of three characters each. For example, for `rspark-notes`: 
 
 * The first `rwx` indicates you (the owner, i.e., `rstudio`) have read, write, and execute permissions;  
 * The second `r-x` indicate your group, `rstudio` here, has read and execute permissions, but not write permissions.  
@@ -101,7 +98,7 @@ Most commands have many options, but usually you can get by with only a few. Oft
 
 Docker does virtualization at the operating system level using containers. This allows Docker to package applications and their dependencies in one or more virtual containers running on the Linux kernel with resource isolation. In its basic configuration `rspark` consists of four containers---`rstudio`, `postgres`, `hadoop`, and `hive`. Spark is installed within the `rstudio` container. An experimental version of `rspark` builds a virtual Spark cluster based on a `master` container and multiple `worker` containers.
 
-Each container has an associated Dockerfile, which is a script for building the layers of a Docker image. Images can be built from a base image. For example, `rstudio` is built from `rocker:verse`, an image for running R from RStudio. A Docker container is simply a running instance of an image.
+Each container has an associated `Dockerfile`, which is a script for building the layers of a Docker image. Images can be built from a base image. For example, `rstudio` is built from `rocker:verse`, an image for running R from RStudio with both the `tidyverse` and publishing capabilities. A Docker container is simply a running instance of an image.
 
 #### Installing Docker for the Mac
 
@@ -117,11 +114,11 @@ For bash access install [git for Windows](https://git-for-windows.github.io). Th
 
 Docker requires a hypervisor (Hyper-V in the case of Windows) to run and it is not installed by default on Windows 10. Hyper-V can be installed on Windows 10 Enterprise, Professional, and Education, but not on Windows 10 Home, Mobile, and earlier verions of Windows. If you meet the system requirements, follow the instruction for installing [Hyper-V here](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).  
 
-Once Hyper-V is installed, go here to get [Docker for the Windows](https://www.docker.com/docker-windows) and follow the directions for installation.  
+Once Hyper-V is installed, get [Docker for the Windows](https://www.docker.com/docker-windows) and follow the directions for installation.  
 
 The following installations assume you have a `bash` shell available. Ideally, you should be on a high-speed network.  
 
-#### Running `rspark` from Docker
+#### Running `rspark` from Docker Hub
 
 Before beginning, launch Terminal.app on the Mac or git bash on Windows (start typing bash from the Start menu to find it). Once running, you should be in your home directory, e.g, type `pwd` to verify. Stay there or `cd` to wherever you want `rspark` installed.
 
@@ -133,16 +130,16 @@ This should only be run the first time. If `rspark-docker` gets updated (I will 
 ```
 git pull origin master
 ```
-You are now ready to start your session. Run:
+You are now ready to start your session. Assuming you are in the parent directory of `rspark-docker`, execute:
 ```
 cd rspark-docker
-./start.sh build
+./start.sh
 ```
-The last command runs the `start.sh` shell script and builds the containers. You must have execute privileges. If not, use `chmod`, e.g., `chmod 755 start.sh`.
+The last command runs the `start.sh` shell script and builds the containers. You must have execute privileges to run the shell script. If not, use `chmod`, e.g., `chmod 755 start.sh`.
 
-It will take awhile the first time or after a pull from GitHub. Eventually, you will reach a line somewhat like: "hive_1      | SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]"  You will *not* return to the terminal prompt, but the containers are nevertheless running. _IMPORTANT: leave the program running in the terminal, i.e., do NOT use Control-C and do not quit the terminal_.
+It will take awhile the first time or after a pull from GitHub. Eventually, you will reach a line somewhat like: "hive_1      | SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]"  Do **not** return to the terminal prompt, but the containers are nevertheless running. **IMPORTANT: leave the program running in the terminal, i.e., do NOT use Control-C and do not quit the terminal**.
 
-Now open a browser and type the url as: `localhost:8787` and sign into RStudio:  
+Now open a browser in Chrome (or Firefox or Safari) and type the url as: `localhost:8787` and sign into RStudio:  
 
 Username: rstudio  
 Password: rstudio
@@ -151,10 +148,11 @@ When finished, quit the current R session (red button). Then return to your loca
 
 To start the containers again, assuming you are in your home directory, execute the following commands:  
 ```
-cd rspark-docker
 ./start.sh
 ```
-and login to RStudio.
+if you are in the `rspark-docker` directory. Then login to RStudio as before.
+
+#### Running `rspark` from GitHub
 
 If you are interested in how the rspark environment is created go to:  
 
@@ -168,7 +166,7 @@ In this case you must build the Docker images yourself by the following:
 ```
 ./start.sh build
 ```
-This will build the images and launch the containers. Login as before. From then on don't use the `build` option, i.e., simply start the containers by:
+This will build the images and launch the containers. Login as before. Don't use the `build` option, i.e., simply start the containers by:
 ```
 ./start.sh
 ```
@@ -182,7 +180,9 @@ cd home/rstudio
 ```
 where "rspark-docker_rstudio_1" is the container `NAME`. You can get a list of running containers by typing `docker ps` into your local terminal or `docker ps -a` to list both the running and stopped containers.
 
-At this point you are in the `bash` shell within the `rstudio` container. You can now run a command-line version of R by simply typing `R`, a binary executable, at the `#` prompt. This will give you an R console in your terminal with `>` as its prompt. However, `ssh`ing into a container is generally done for debugging in creating the container's Dockerfile---not for running application programs.
+At this point you are in the `bash` shell within the `rstudio` container. You can now run a command-line version of R by simply typing `R`, a binary executable, at the `#` or `$` prompt. This will give you an R console in your terminal with `>` as its prompt. However, `ssh`ing into a container is generally done for debugging in creating the container's Dockerfile---not for running application programs.
+
+The bash script `dockill.sh` in the `rspark` GitHub repo has a series of `docker` commands to control your images, containers, and volumes.
 
 ### 1.3.4 Vagrant/ VirtualBox Virtualization
 
