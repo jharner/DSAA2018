@@ -192,7 +192,19 @@ At this point you are in the `bash` shell within the `rstudio` container. You ca
 
 Note that the `Terminal` tab within RStudio's `Console` panel is running bash within the `rstudio` container. Ironically, you can run a separate R process within the Terminal.
 
-You can get a list of running containers by typing `docker ps` into your local terminal or `docker ps -a` to list both the running and stopped containers. The bash script `dockill.sh` in the `rspark` GitHub repo has a series of `docker` commands to control your images, containers, and volumes.
+You can get a list of running containers by typing `docker ps` into your local terminal or `docker ps -a` to list both the running and stopped containers. The bash script `dockill.sh` in the `rspark` GitHub repo has a series of `docker` commands to control your images, containers, and volumes. For example, to stop running containers, issue:
+```
+docker stop $(docker ps -a -q)
+```
+or to delete all containers, issue:
+```
+docker rm $(docker ps -a -q)
+```
+Likewise, images can be deleted by:
+```
+docker rmi -f $(docker images -q)
+```
+If you are having problems with your containers, you can stop and then delete the contanmers and images (in this order). Once you delete the containers, images, and perhaps the volumes, then you must download new images from Docker Hub or rebuild the images from GitHub. 
 
 ### 1.3.4 Vagrant/ VirtualBox Virtualization
 
