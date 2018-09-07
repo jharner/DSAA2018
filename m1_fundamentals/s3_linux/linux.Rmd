@@ -154,7 +154,7 @@ if you are in the `rspark-docker` directory. Then login to RStudio as before.
 
 #### Running `rspark` from GitHub
 
-If you are interested in how the rspark environment is created go to:  
+If you are interested in how the rspark environment is created, go to:  
 
 https://github.com/jharner/rspark
 
@@ -166,7 +166,15 @@ In this case you must build the Docker images yourself by the following:
 ```
 ./start.sh build
 ```
-This will build the images and launch the containers. Login as before. Don't use the `build` option, i.e., simply start the containers by:
+This will build the images and launch the containers. Login as before.
+
+Note: the build option is only specified the first time or after you have issued:  
+```
+git pull origin master
+```
+to update you local repo.
+
+Unless you have just upgraded `rspark`, simply start the containers by:
 ```
 ./start.sh
 ```
@@ -178,11 +186,13 @@ You can enter containers from the local command line using `ssh` (secure shell).
 docker exec -ti rspark-docker_rstudio_1 bash
 cd home/rstudio
 ```
-where "rspark-docker_rstudio_1" is the container `NAME`. You can get a list of running containers by typing `docker ps` into your local terminal or `docker ps -a` to list both the running and stopped containers.
+where "rspark-docker_rstudio_1" is the container `NAME`. 
 
 At this point you are in the `bash` shell within the `rstudio` container. You can now run a command-line version of R by simply typing `R`, a binary executable, at the `#` or `$` prompt. This will give you an R console in your terminal with `>` as its prompt. However, `ssh`ing into a container is generally done for debugging in creating the container's Dockerfile---not for running application programs.
 
-The bash script `dockill.sh` in the `rspark` GitHub repo has a series of `docker` commands to control your images, containers, and volumes.
+Note that the `Terminal` tab within RStudio's `Console` panel is running bash within the `rstudio` container. Ironically, you can run a separate R process within the Terminal.
+
+You can get a list of running containers by typing `docker ps` into your local terminal or `docker ps -a` to list both the running and stopped containers. The bash script `dockill.sh` in the `rspark` GitHub repo has a series of `docker` commands to control your images, containers, and volumes.
 
 ### 1.3.4 Vagrant/ VirtualBox Virtualization
 
