@@ -61,24 +61,37 @@
 \section{Fundamentals}
 
 \begin{frame}[containsverbatim]
-  \frametitle{The R Computational Environment}
-This tutorial covers data science workflows using \proglang{R} as both an analysis engine and as an interface to databases, Spark, etc.\\
+  \frametitle{The Components of this Tutorial}
+This tutorial covers data science workflows using \proglang{R} as both an analysis and graphics engine and as an interface to databases, Hadoop, Spark, etc.\\
 \vspace{0.5 cm}
-The primary language used in the tutorial is \proglang{R}, but a working knowledge of bash scripts and SQL is useful. You should download and install R if you have not already done so. Go to: \texttt{https://www.r-project.org}\\
-\vspace{0.5 cm}
-Likewise, you should install the RStudio IDE, which is found here:\\
-\texttt{https://www.rstudio.com}
-
+In following are the required components of this tutorial:
+\begin{itemize}
+  \item the DSAA tutorial slides (these slides)
+  \item the tutorial notebook content
+  \item the \texttt{rspark} computational environment
+  \item the \texttt{rspark-docker} images
+\end{itemize}
+These components are discussed in the next few slides.
 \end{frame}
 
 \begin{frame}[containsverbatim]
-  \frametitle{The Tutorial Beamer Slides}
+  \frametitle{The R Computational Environment}
+The primary language used in this tutorial is \proglang{R}, but a working knowledge of bash scripts and SQL is useful. You should download and install R if you have not already done so. Go to: \texttt{https://www.r-project.org}\\
+\vspace{0.5 cm}
+Likewise, you should install the RStudio IDE, which is found here:\\
+\texttt{https://www.rstudio.com}
+\end{frame}
 
-The tutorial slides provide an overview of the tutorial content. The GitHub repo for the slides can be found here:\\
+\begin{frame}[containsverbatim]
+  \frametitle{The DSAA Tutorial Beamer Slides}
+
+The tutorial slides provide an overview of the tutorial content. The GitHub repo for the slides can be found \href{https://github.com/jharner/DSAA2018rspark-tutorial}{here}:\\
 https://github.com/jharner/DSAA2018rspark-tutorial\\
 \vspace{0.5 cm}
 Go to the site and click on the green button to clone the repo to your computer. Alternatively, clone this repo by issuing the following command from a terminal:\\
-\texttt{git clone https://github.com/jharner/DSAA2018rspark-tutorial.git}
+\texttt{git clone https://github.com/jharner/DSAA2018rspark-tutorial.git}\\
+\vspace{0.5 cm}
+These slides are not the main source of content for this tutorial The R markdown notebook documents in the next slide provide the detailed, execuatable content.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -90,21 +103,39 @@ The interactive, executable content of this tutorial is available in a GitHub re
 As before, go to the site and click on the green button to clone the repo to your computer. You can also clone this repo with the following command:\\
 \texttt{git clone https://github.com/jharner/rspark-tutorial.git}\\
 \vspace{0.5 cm}
-This local repo can then be imported into the computional environment used in this tutorial, which is called \texttt{rspark}.
+The \texttt{rspark-tutorial} consists of executable R markdown documents organized into modules containing sections. These tutorial documents are executed within \texttt{rspark}.\\
+
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{The rspark Computational Environment}
   
-The \texttt{rspark-tutorial} consists of executable R markdown documents organized into modules containing sections. These tutorial documents are executed within \texttt{rspark}.\\
+This \texttt{rspark-tutorial} local repo can then be imported into the computional environment used in this tutorial, which is called \href{https://github.com/jharner/rspark}{rspark}.\\
 \vspace{0.5 cm}
-The \texttt{rspark} computational environment is available in several GitHub repos depending on whether you want to built the environment from scratch or you you want to download pre-built images. Assuming the latter, go to the rspark-docker repo:\\
+The \texttt{rspark} computational environment is available in several GitHub repos depending on whether you want to built the environment from scratch or you you want to download pre-built images. Assuming the latter, go to the \href{https://github.com/jharner/rspark-docker}{rspark-docker} repo:\\
 \texttt{https://github.com/jharner/rspark-docker}\\
 \vspace{0.5 cm}
 Go to the site and click on the green button to clone the repo to your computer. Alternatively, clone this repo by issuing the following command from a terminal:\\
 \texttt{git clone https://github.com/jharner/rspark-docker.git}.
 \end{frame}
 
+\begin{frame}[containsverbatim]
+  \frametitle{Running rspark}
+  
+In order to execute the content in the \texttt{rspark-tutorial}, the \texttt{rspark} computational environment must be run as a web applicaton. Follow the directions in the \texttt{rspark-docker} to launch \texttt{rspark}.\\
+\vspace{0.5 cm}
+Once \texttt{rspark} is running, import the \texttt{rspark-tutorial} by clicking on the \texttt{Files} tab in RStudio server. The \texttt{rspark-tutorial} directory must be zipped before being imported. Click on the \texttt{Upload} option under the \texttt{Files} tab and navigate to the \texttt{rspark-tutorial.zip} file and upload it.\\
+\vspace{0.5 cm}
+You can now execute the R markdown documents, i.e., those with the \texttt{.Rmd} suffix. These files can be executed interatively as notebooks or knitted to html, pdf, or Word documents.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Running the DSAA Tutorial Slides}
+  
+The slides cannot be executed in \texttt{rspark}'s \texttt{rstudio} docker container since the full publishing capability of RStudio is not supported. In particular the \LaTeX Beamer package (and other components of \LaTeX) was not installed to keep the container size reasonable.\\
+\vspace{0.5 cm}
+As a result, the \texttt{DSAA2018rspark-tutorial} repo must be executeds within a local version of RStudio.
+\end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{What is Data Science?}
