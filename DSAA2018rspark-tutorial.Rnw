@@ -61,14 +61,54 @@
 \section{Fundamentals}
 
 \begin{frame}[containsverbatim]
-  \frametitle{What is a Data Scientist?}
-Josh Wills:\\
+  \frametitle{The R Computational Environment}
+This tutorial covers data science workflows using \proglang{R} as both an analysis engine and as an interface to databases, Spark, etc.\\
 \vspace{0.5 cm}
-{\bf Data Scientist} (n.) Person who is better at statistics than any software engineer and better at software engineering than any statistician.
+The primary language used in the tutorial is \proglang{R}, but a working knowledge of bash scripts and SQL is useful. You should download and install R if you have not already done so. Go to: \texttt{https://www.r-project.org}\\
+\vspace{0.5 cm}
+Likewise, you should install the RStudio IDE, which is found here:\\
+\texttt{https://www.rstudio.com}
+
 \end{frame}
 
 \begin{frame}[containsverbatim]
+  \frametitle{The Tutorial Beamer Slides}
+
+The tutorial slides provide an overview of the tutorial content. The GitHub repo for the slides can be found here:\\
+https://github.com/jharner/DSAA2018rspark-tutorial\\
+\vspace{0.5 cm}
+Go to the site and click on the green button to clone the repo to your computer. Alternatively, clone this repo by issuing the following command from a terminal:\\
+\texttt{git clone https://github.com/jharner/DSAA2018rspark-tutorial.git}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{The Tutorial Notebook Content}
+  
+The interactive, executable content of this tutorial is available in a GitHub repo called \href{https://github.com/jharner/rspark-tutorial}{rspark-tutorial} found at:\\
+\texttt{https://github.com/jharner/rspark-tutorial}\\
+\vspace{0.5 cm}
+As before, go to the site and click on the green button to clone the repo to your computer. You can also clone this repo with the following command:\\
+\texttt{git clone https://github.com/jharner/rspark-tutorial.git}\\
+\vspace{0.5 cm}
+This local repo can then be imported into the computional environment used in this tutorial, which is called \texttt{rspark}.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{The rspark Computational Environment}
+  
+The \texttt{rspark-tutorial} consists of executable R markdown documents organized into modules containing sections. These tutorial documents are executed within \texttt{rspark}.\\
+\vspace{0.5 cm}
+The \texttt{rspark} computational environment is available in several GitHub repos depending on whether you want to built the environment from scratch or you you want to download pre-built images. Assuming the latter, go to the rspark-docker repo:\\
+\texttt{https://github.com/jharner/rspark-docker}\\
+\vspace{0.5 cm}
+Go to the site and click on the green button to clone the repo to your computer. Alternatively, clone this repo by issuing the following command from a terminal:\\
+\texttt{git clone https://github.com/jharner/rspark-docker.git}.
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
   \frametitle{What is Data Science?}
+Data science combines elements of statistics and computer science to develop methodologies to analyze large, complex data and streaming data within various subject-matter areas.
 \begin{center}
 \includegraphics[height=0.7\textheight]{figures/DataScienceVenn2.png}
 \end{center}
@@ -80,6 +120,13 @@ The \href{http://www.stat.wvu.edu/~jharner/biostatistics/workflow.html}{data sci
 \begin{center}
   \includegraphics[height=0.75\textheight]{figures/DataScienceProcess.png}
 \end{center}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{What is a Data Scientist?}
+Josh Wills:\\
+\vspace{0.5 cm}
+{\bf Data Scientist} (n.) Person who is better at statistics than any software engineer and better at software engineering than any statistician.
 \end{frame}
 
 \section{Data Sources}
