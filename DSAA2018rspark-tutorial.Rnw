@@ -64,7 +64,7 @@
   \frametitle{The Components of this Tutorial}
 This tutorial covers data science workflows using \proglang{R} as both an analysis and graphics engine and as an interface to databases, Hadoop, Spark, etc.\\
 \vspace{0.5 cm}
-In following are the required components of this tutorial:
+The following are the required components of this tutorial:
 \begin{itemize}
   \item the DSAA tutorial slides (these slides)
   \item the tutorial notebook content
