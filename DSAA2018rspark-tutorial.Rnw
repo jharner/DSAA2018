@@ -26,7 +26,7 @@
   West Virginia University
 }
 
-\date[]{August 29, 2018}
+\date[]{Octobrt 1, 2018}
 
 \subject{}
 
@@ -57,8 +57,6 @@
   \tableofcontents
   % You might wish to add the option [pausesections]
 \end{frame}
-
-\section{Fundamentals}
 
 \begin{frame}[containsverbatim]
   \frametitle{The Components of this Tutorial}
@@ -145,246 +143,52 @@ Data science combines elements of statistics and computer science to develop met
 \end{center}
 \end{frame}
 
+\section{Fundamentals}
+
 \begin{frame}[containsverbatim]
-  \frametitle{Data Science Process}
-The \href{http://www.stat.wvu.edu/~jharner/biostatistics/workflow.html}{data science process} is a workflow from data extraction to data products:
-\begin{center}
-  \includegraphics[height=0.75\textheight]{figures/DataScienceProcess.png}
-\end{center}
+  \frametitle{Data Science Workflows}
+This tutorial spans the entire data science workflow or process.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m1\_fundamentals/s1\_workflow/workflow.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
-  \frametitle{What is a Data Scientist?}
-Josh Wills:\\
+  \frametitle{RStudio Server}
+RStudio is a powerful integrated development environment (IDE) primarily used for developing code for R projects, including R packages. RStudio supports the integration of R, Python, bash, and SQL code chunks into Rmarkdown documents (and notebooks), among other languages.\\
 \vspace{0.5 cm}
-{\bf Data Scientist} (n.) Person who is better at statistics than any software engineer and better at software engineering than any statistician.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m1\_fundamentals/s2\_rstudio/rstudio.Rmd}{here}.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Linux}
+Data science requires underlying tools and the most basic of these is the operating system (OS). Linux is most commonly used since it is open source and has advanced features, e.g., its kernel and file system, which make handling big data feasible.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m1\_fundamentals/s3\_linux/linux.Rmd}{here}.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{ML Basics}
+An \textit{algorithm} is a procedure specifying a set of steps to accomplish a task.\\
+\vspace{0.5 cm}
+Efficient algorithms that work sequentially or in parallel are the basis of pipelines to prepare, process, and analyze data.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m1\_fundamentals/s4\_ml\_basics/ml\_basics.Rmd}{here}.
 \end{frame}
 
 \section{Data Sources}
 
 \begin{frame}[containsverbatim]
-  \frametitle{Programming Languages}
-\begin{description}
-  \item[\href{https://www.r-project.org/about.html}{R}] A language and environment for statistical computing and graphics.
-  \item[\href{https://www.python.org}{Python}] An interpreted, high-level programming language widely used in data science.
-  \item[\href{https://www.javascript.com/}{JavaScript}] A high-level, dynamic programming language for creating interactive web pages and graphics.
-  \item[\href{https://en.wikipedia.org/wiki/Bash_(Unix_shell)}{bash}] A processor that runs UNIX (\href{http://www.stat.wvu.edu/~jharner/biostatistics/linux.html}{Linux}) commands interactively or from shell scrips.
-  \item[\href{https://www.sas.com/en_us/home.html}{SAS}] A propriety programming language for data management, statistical analyses, and advanced analytics.
-\end{description}
+  \frametitle{Plain Text}
+Plain text files are the simplest way to store data. Generally, the data is stored in rows representing observations (or records) with columns representing variables (or fields). The beginning of the file may contain \textbf{metadata}, i.e., information about the data. It is sometimes called the \textbf{header}, which may represent the variable names.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2\_data\_sources/s1\_text/text.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
-  \frametitle{Why I like R!}
-  
-Hadley Wickham's \href{http://adv-r.had.co.nz}{Advanced R} provides a lot of reasons.\\
-\vspace{0.25cm}
-My favoriate features:
-\begin{description}
-  \item[Functional Programming:]  Assign \href{http://www.stat.wvu.edu/~jharner/biostatistics/functions.html}{functions} to variables, store them in lists, pass them as arguments to other functions, create them inside functions, and even return them as the result of a function. (See Newton's method example.)
-  \item[Multiple Object Oriented (OO) Systems:] S3 (generic function OO); S4 (formal class definitions), etc.
-  \item[Rich Data Structures and Workflows] \href{http://www.stat.wvu.edu/~jharner/biostatistics/dstructures.html}{Vectors, data frames}, etc.
-  \item[Domain Specific Languages:]  A powerful toolkit for creating embedded domain specific languages (DSLs), e.g., HTML, LaTeX, R formulas, SQL, etc.
-\end{description}
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{R Code}
-\href{http://www.stat.wvu.edu/~jharner/biostatistics/root.html}{R code}\\ embedded within Latex Beamer.
-<<>>=
-newton_search <- function(f, df, guess, conv=0.001) {
-# Note: If f does not have a root, we could be in an infinite loop.
-  improve <- function(guess, f, df) {
-    guess - f(guess) / df(guess)
-  }
-  while(abs(f(guess)) > conv) {
-    guess <- improve(guess, f, df)
-  }
-  guess
-}
-newton_search(f = sin, df = cos, guess = 3)
-@
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Data Wrangling}
-Garrett Grolemund's and Hadley Wickham's \href{http://r4ds.had.co.nz}{R for Data Science} is being developed to look at data:
-\begin{description}
-  \item[Import] Import data from text files, the Web (curl), SQL databases, NoSQL databases, etc.
-  \item[Tidying] Match the semantics of a dataset with how it is stored.
-  \item[Transformation]  Subset data, create new variables, summarize data, etc.
-  \item[Visualization] 
-  \item[Modeling]
-  \item[Communication]
-\end{description}
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Machine Learning}
-\begin{center}
-  \includegraphics[height=0.75\textheight]{figures/MachineLearning.png}
-\end{center}
-\end{frame}
-
-\section{Data Transformations}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Machine Learning Algorithms}
-\href{http://www.stat.wvu.edu/~jharner/biostatistics/ml_basics.html}{Machine learning algorithms} are largely used to predict, classify, or cluster.
-% \vspace{0.25cm}
-\begin{itemize}
-    \item Prediction and classification are examples of \textbf{supervised learning}, whereas 
-    \item clustering is an example of \textbf{unsupervised learning}.
-\end{itemize}
-
-Put another way, supervised learning is concerned with problems that have a measurable (or labeled) response variable and unsupervised learning is concerned with problems without a response variable.
-
-\begin{itemize}
-  \item \textbf{Statistical modeling} is done (primarily) to infer the underlying generative process.
-  \item \textbf{Machine learning algorithms} are used to predict or classify with the most accuracy. They form the basis of data products. 
-\end{itemize}
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Reproducible Research}
-  
-Reproducible research is the idea that data analyses and, more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them. (Johns Hopkins University/ Coursera)\\
-\vspace{0.2cm}
-Reproducible research can be done using R markdown documents or R notebooks. R markdown allows LaTeX equations and R code to be embedded in markdown documents. In addition, other languages are also supported, e.g., Python and bash engines.
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Open Source Big Data Architectures}
-What data architecture is needed for big data analytics?\\
-\vspace{0.0cm}
-
-\begin{description}
-	\item[\href{http://hortonworks.com/hdp/}{HDFS/Hadoop}] A software framework for distributed storage (\href{http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/hdfs-and-mapreduce.html}{HDFS}) and distributed processing (\href{http://en.wikipedia.org/wiki/MapReduce}{MapReduce}).
-	\item[\href{http://www.alluxio.org}{Alluxio}/\href{http://amplab.cs.berkeley.edu/software/}{Spark}] A cluster computing environment using in-memory primitives rather than Hadoop's two-stage, disk-based MapReduce approach.
-	\item[\href{https://flink.apache.org}{Flink}] A streaming dataflow engine that provides data distribution, communication, and fault tolerance for distributed computations over data streams.
-\end{description}
-
-How do we access these big data processing architectures? From an R perspective: \href{https://www.rstudio.com}{RStudio}.
-\end{frame}
-
-\section{Hadoop}
-
-\begin{frame}[containsverbatim]
-  \frametitle{HDFS/ Hadoop}
-This demo illustrates MapReduce run in a dockerized container environment. Two containers are created here---one for RStudio Server and one for Hadoop.\\
-\vspace{0.2cm}
-\href{http://www.stat.wvu.edu/~jharner/biostatistics/rhadoop.html}{RHadoop Demo}\\
-\vspace{0.2cm}
-It would be possible to create a virtual cluster (even on your laptop) having a master and worker nodes using \href{https://www.docker.com/what-docker}{Docker containers}. These containers could be managed by \href{http://kubernetes.io}{kubernetes} or \href{http://mesos.apache.org}{Mesos}.
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Batch Architecture}
-\includegraphics[height=0.85\textheight]{figures/BatchArch.png} 
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Streaming Architecture}
-\includegraphics[height=0.85\textheight]{figures/StreamArch.png} 
-\end{frame}
-
-\section{Spark}
-
-\begin{frame}[containsverbatim]
-  \frametitle{YARN/ Spark}
-
-Spark can be run in a general way by downloading the \href{http://spark.apache.org/downloads.html}{Spark distribution}. This allow Spark to be run using Python, R, the command line, etc.\\
-\vspace{0.2cm}
-Spark can also be run directly in RStudio using the \href{http://spark.rstudio.com}{sparklyr} package. This is the main way Spark will be run in this program.\\
-\vspace{0.2cm}
-For example, see:\\
-\href{http://www.stat.wvu.edu/~jharner/biostatistics/regression.html}{Regression}\\
-\href{http://www.stat.wvu.edu/~jharner/biostatistics/regularization.html}{Regularization}\\
-\href{http://www.stat.wvu.edu/~jharner/biostatistics/slump.html}{Slump Regressopm}
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{RStudio Server}
-  
-RStudio is a powerful, open-source IDE for R.\\
-\vspace{0.2cm}
-RStudio Server
-\begin{itemize}
-	\item provides a productive, web-based user interface for R;
-	\item deploys on Linux platforms;
-	\item supports both Sweave and \href{http://rmarkdown.rstudio.com}{R Markdown};
-	\item supports interactive web application development using Shiny and Shiny Server;
-	\item allows collaboration among team members (Prp version only).
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{IDE Features}
-  
-As an IDE, RStudio:
-\begin{itemize}
-	\item supports syntax highlighting, code completion, and smart indentation;
-	\item allows code go be directly executed from the source editor;
-	\item supports integrated R help;
-	\item has a workspace browser;
-	\item has an interactive debugger allowing the developer to find and fix errors quickly;
-	\item has extensive support for developing packages
-\end{itemize}
- 
-\end{frame}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Projects}
-  
-RStudio allows the creation of projects.\\
-\vspace{0.2cm}
-RStudio projects can be created:
-\begin{itemize}
-	\item in a new directory;
-	\item from an existing directory containing R code and data;
-	\item from a version control Git or Subversion directory. 
-\end{itemize}
-RStudio has support for multiple simultaneous projects.\\
-\vspace{0.2cm}
-Version control allows the coordination of team work and benefits individual work.
-
-\end{frame}
-
-\section{Supervised Learning}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Projects}
-  
-RStudio allows the creation of projects.\\
-\vspace{0.2cm}
-RStudio projects can be created:
-\begin{itemize}
-	\item in a new directory;
-	\item from an existing directory containing R code and data;
-	\item from a version control Git or Subversion directory. 
-\end{itemize}
-RStudio has support for multiple simultaneous projects.\\
-\vspace{0.2cm}
-Version control allows the coordination of team work and benefits individual work.
-
-\end{frame}
-
-\section{Unsupervised Learning}
-
-\begin{frame}[containsverbatim]
-  \frametitle{Git/ GitHub}
-  
-RStudio internally supports Git and GitHub.
-\vspace{0.2cm}
-Git is a distributed version control system for tracking changes in code or text. It allows multiple creators to coordinate their work on the files in the git repository (repo).\\
-\vspace{0.2cm}
-GitHub is a web-based Git repository and Internet hosting service.\\
-\vspace{0.2cm}
-I have a repo for building a virtual \href{https://github.com/jharner/rspark}{R/ Hadoop/ Spark cluster environment} which mimics the BUDA cluster.\\
-
+  \frametitle{JSON}
+\textit{JavaScript Object Notation} (JSON) is a text format for the serialization of structured data. The design of JSON is a simple and concise text-based format, particularly when compared to XML.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2\_data\_sources/s2\_json/json.Rmd}{here}.
 \end{frame}
 
 \end{document}
