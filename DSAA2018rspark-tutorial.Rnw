@@ -191,6 +191,25 @@ The notes for this section are \href{https://github.com/jharner/rspark-tutorial/
 The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2\_data\_sources/s2\_json/json.Rmd}{here}.
 \end{frame}
 
+\begin{frame}[containsverbatim]
+  \frametitle{Spreadsheets}
+Spreadsheets are widely used as a storage option. Microsoft Excel is commonly used spreadsheet software. The `readxl` package is part of the `tidyverse`. It is used for importing tabular Excel files (`.xls` and `.xlsx`) into R as tibbles.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2_data_sources/s3_spreadsheets/spreadsheets.Rmd}{here}.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Databases}
+This section introduces relational data base management systems and NoSQL databases. The relational model is essential for multi-user transactional data, but it does not scale for big data. NoSQL databases are often distributed across a cluster.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2_data_sources/s4_psql/psql.Rmd}{here}.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Web Servies}
+\textit{Web Services} is a recently introduced phrase. The \textit{Web} and the \textit{HyperText Transfer Protocol (HTTP)} that underlies the communication of data on the Web have become a vital part of our information network and day-to-day environment. Thus, being able to access various forms of data using HTTP is an important facility in a general programming language.\\
+\vspace{0.5 cm}
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2_data_sources/s5_web/web.Rmd}{here}.
+\end{frame}
+
 \end{document}
-
-
