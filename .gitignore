@@ -11,7 +11,6 @@ metastore_db
 *.fls
 *.html
 *.nb.html
-*.pdf
 *.doc
 *.docx
 *output
