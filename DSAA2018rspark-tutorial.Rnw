@@ -26,7 +26,7 @@
   West Virginia University
 }
 
-\date[]{Octobrt 1, 2018}
+\date[]{Octobrt 3, 2018}
 
 \subject{}
 
@@ -64,12 +64,12 @@ This tutorial covers data science workflows using \proglang{R} as both an analys
 \vspace{0.5 cm}
 The following are the required components of this tutorial:
 \begin{itemize}
-  \item the DSAA tutorial slides (these slides)
-  \item the tutorial notebook content
-  \item the \texttt{rspark} computational environment
-  \item the \texttt{rspark-docker} images
+  \item the \href{https://github.com/jharner/DSAA2018rspark-tutorial}{DSAA 2018 rspark-tutorial} slides (these slides)
+  \item the \href{https://github.com/jharner/rspark-tutorial}{rspark-tutorial} notebook content
+  \item the \href{https://github.com/jharner/rspark}{rspark} development environment
+  \item the \href{https://github.com/jharner/rspark-docker}{rspark-docker} images
 \end{itemize}
-These components are discussed in the next few slides.
+These components are discussed in the next group of slides.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -79,7 +79,7 @@ The primary language used in this tutorial is \proglang{R}, but a working knowle
 Likewise, you should install the RStudio IDE, which is found here:\\
 \href{https://www.rstudio.com}{https://www.rstudio.com}\\
 \vspace{0.5 cm}
-\textbf{Technically, you do not need to download R and RStudio to your laptop. Both of these systems will actually be run in Docker containers as described in the next several slides.}
+\textbf{Note:}Technically, you do not need to download \proglang{R} and RStudio to your laptop except to execute these slides. Both \proglang{R} and RStudio are installed in one of the \texttt{rspark} Docker containers, which is where the tutorial code actually runs.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -142,12 +142,28 @@ For Windows you must install \href{https://docs.microsoft.com/en-us/virtualizati
   \frametitle{Running rspark}
   
 In order to execute the content in the \texttt{rspark-tutorial}, the \texttt{rspark} computational environment must be run as a web applicaton. Follow the directions in the \href{https://github.com/jharner/rspark-docker}{rspark-docker} to launch \texttt{rspark}.\\
-\vspace{0.5 cm}
-Use the UNIX command \texttt{cd} to go the directory (folder) containing \texttt{rspark-docker}. Then run the \texttt{start.sh} shell script. Do something like this from the terminal:\\
+\vspace{0.25 cm}
+Using the UNIX command \texttt{cd}, go the directory (folder) containing \texttt{rspark-docker}. Do something like this from the terminal:\\
+\vspace{0.25 cm}
 \texttt{cd rspark-docker}\\
 \texttt{chmod 755 start.sh}\\
 \texttt{./start.sh}\\
-The second line makes the script executable if it is not already. The third line executes the script.
+\vspace{0.25 cm}
+The second line makes the script executable if it is not already. The third line executes the script. Running the script will take awhile, particularly the first time. Leave the program running in the terminal---do not use Control-C or quit the application.
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Connecting to rspark}
+Open a browser in Chrome (or Firefox or Safari) and type the url as: \texttt{localhost:8787} and sign into RStudio:\\
+\vspace{0.25 cm}
+Username: rstudio\\
+Password: rstudio\\
+\vspace{0.25 cm}
+When finished, quit the current R session (red button). Then return to your local terminal and type: Control-C to stop the containers, which will return the prompt.\\
+\vspace{0.25 cm}
+To start the containers again, assuming you are in the \texttt{rspark-docker} directory, execute the following commands again and repeat the login:\\
+\vspace{0.25 cm}
+./start.sh
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -163,7 +179,7 @@ You can now execute the R markdown documents, i.e., those with the \texttt{.Rmd}
   
 The slides cannot be executed in \texttt{rspark}'s \texttt{rstudio} docker container since the full publishing capability of RStudio is not supported. In particular the \LaTeX Beamer package (and other components of \LaTeX) was not installed to keep the container size reasonable.\\
 \vspace{0.5 cm}
-As a result, the \texttt{DSAA2018rspark-tutorial} repo must be executeds within a local version of RStudio.
+As a result, the \texttt{DSAA2018rspark-tutorial} repo must be executed within a local version of RStudio.
 \end{frame}
 
 \begin{frame}[containsverbatim]
