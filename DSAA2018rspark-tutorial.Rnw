@@ -26,7 +26,7 @@
   West Virginia University
 }
 
-\date[]{Octobrt 3, 2018}
+\date[]{October 3, 2018}
 
 \subject{}
 
@@ -69,7 +69,7 @@ The following are the required components of this tutorial:
   \item the \href{https://github.com/jharner/rspark}{rspark} development environment
   \item the \href{https://github.com/jharner/rspark-docker}{rspark-docker} images
 \end{itemize}
-These components are discussed in the next group of slides.
+These components along with supporting technologies should be installed on your laptop prior to the tutorial, if possible. Directions for doing this are given in the next group of slides.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -83,10 +83,10 @@ Likewise, you should install the RStudio IDE, which is found here:\\
 \end{frame}
 
 \begin{frame}[containsverbatim]
-  \frametitle{Version Contral Using Git}
+  \frametitle{Version Control Using Git}
 Most of the software you need will require cloning repositories from GitHub. \texttt{git} is preinstalled on macOS, but I recommend updating it. Go to: \href{https://git-scm.com/downloads}{https://git-scm.com/downloads} and download/install the latest release.\\
 \vspace{0.5 cm}
-If you use Windows, I recommed you install another version.Go to:
+If you use Windows, I recommend you install another version.Go to:
 \href{https://gitforwindows.org}{https://gitforwindows.org} and download/install the latest release. \texttt{gitforwindows} also provides \texttt{bash}, i.e., a command-line shell, which you will need.\\
 \vspace{0.5 cm}
 macOS is UNIX based and therefore has \texttt{bash} built-in. Simply launch Terminal.app from the Utilities directory in the Application directory.
@@ -100,7 +100,7 @@ The tutorial slides provide an overview of the tutorial content. The GitHub repo
 Go to the site and click on the green button to clone the repo to your computer. Alternatively, clone this repo by issuing the following command from a terminal running \texttt{bash}:\\
 \texttt{git clone https://github.com/jharner/DSAA2018rspark-tutorial.git}\\
 \vspace{0.5 cm}
-These slides are not the main source of content for this tutorial The R markdown notebook documents in the next slide provide the detailed, execuatable content.
+These slides are not the main source of content for this tutorial The R markdown notebook documents in the next slide provide the detailed, executable content.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -118,7 +118,7 @@ The \texttt{rspark-tutorial} consists of executable R markdown documents organiz
 \begin{frame}[containsverbatim]
   \frametitle{The rspark Computational Environment}
   
-This \texttt{rspark-tutorial} local repo can then be imported into the computional environment used in this tutorial, which is called \href{https://github.com/jharner/rspark}{rspark}. This is the development environment.\\
+This \texttt{rspark-tutorial} local repo can then be imported into the computational environment used in this tutorial, which is called \href{https://github.com/jharner/rspark}{rspark}. This is the development environment.\\
 \vspace{0.5 cm}
 The \texttt{rspark} computational environment is available in several GitHub repos depending on whether you want to built the environment from scratch or you you want to download pre-built images. Assuming the latter, go to the rspark-docker repo here: \href{https://github.com/jharner/rspark-docker}{https://github.com/jharner/rspark-docker}.\\
 \vspace{0.5 cm}
@@ -129,7 +129,7 @@ Go to the site and click on the green button to clone the repo to your computer.
 \begin{frame}[containsverbatim]
   \frametitle{Installing Docker}
   
-In order to execute the content in the \texttt{rspark-tutorial}, the \texttt{rspark} computational environment must be run as a web applicaton. Follow the directions in the \href{https://github.com/jharner/rspark-docker}{rspark-docker} to launch \texttt{rspark}.\\
+In order to execute the content in the \texttt{rspark-tutorial}, the \texttt{rspark} computational environment must be run as a web application. Follow the directions in the \href{https://github.com/jharner/rspark-docker}{rspark-docker} to launch \texttt{rspark}.\\
 \vspace{0.25 cm}
 In order to run \texttt{rspark}, you need to install Docker. macOS supports virtualization directly. Simply install \href{https://www.docker.com/products/docker-desktop}{Docker for Mac}.\\
 \vspace{0.25 cm}
@@ -141,7 +141,7 @@ For Windows you must install \href{https://docs.microsoft.com/en-us/virtualizati
 \begin{frame}[containsverbatim]
   \frametitle{Running rspark}
   
-In order to execute the content in the \texttt{rspark-tutorial}, the \texttt{rspark} computational environment must be run as a web applicaton. Follow the directions in the \href{https://github.com/jharner/rspark-docker}{rspark-docker} to launch \texttt{rspark}.\\
+In order to execute the content in the \texttt{rspark-tutorial}, the \texttt{rspark} computational environment must be run as a web application. Follow the directions in the \href{https://github.com/jharner/rspark-docker}{rspark-docker} to launch \texttt{rspark}.\\
 \vspace{0.25 cm}
 Using the UNIX command \texttt{cd}, go the directory (folder) containing \texttt{rspark-docker}. Do something like this from the terminal:\\
 \vspace{0.25 cm}
@@ -171,7 +171,7 @@ To start the containers again, assuming you are in the \texttt{rspark-docker} di
   
 Once \texttt{rspark} is running, import the \texttt{rspark-tutorial} by clicking on the \texttt{Files} tab in RStudio server. The \texttt{rspark-tutorial} directory must be zipped before being imported. Click on the \texttt{Upload} option under the \texttt{Files} tab and navigate to the \texttt{rspark-tutorial.zip} file and upload it.\\
 \vspace{0.5 cm}
-You can now execute the R markdown documents, i.e., those with the \texttt{.Rmd} suffix. These files can be executed interatively as notebooks or knitted to html, pdf, or Word documents.
+You can now execute the R markdown documents, i.e., those with the \texttt{.Rmd} suffix. These files can be executed interactively as notebooks or knitted to html, pdf, or Word documents.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -188,6 +188,13 @@ Data science combines elements of statistics and computer science to develop met
 \begin{center}
 \includegraphics[height=0.7\textheight]{figures/DataScienceVenn2.png}
 \end{center}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{rspark-tutorial}
+The slides that follow provide brief summaries of the \texttt{rspark-tutorial} content. Each slide provides a summary and a link to the actual section of \texttt{rspark-tutorial}. Collectively, these slides make up seven modules: fundamentals, data sources, data transformations, hadoop, spark, supervised learning, and unsupervised learning.\\
+\vspace{0.5 cm}
+The slides have module names at the top with a small circle for each section in the module. The actual link provides access to the actual content in GitHub. Ideally, the content should be created dynamically within the \texttt{rspark} container environment.
 \end{frame}
 
 \section{Fundamentals}
@@ -219,7 +226,7 @@ An \textit{algorithm} is a procedure specifying a set of steps to accomplish a t
 \vspace{0.5 cm}
 Efficient algorithms that work sequentially or in parallel are the basis of pipelines to prepare, process, and analyze data.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m1\_fundamentals/s4\_ml\_basics/ml\_basics.Rmd}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m1\_fundamentals/s4\_ml\_intro/ml\_basics.Rmd}{here}.
 \end{frame}
 
 \section{Data Sources}
@@ -253,7 +260,7 @@ The notes for this section are \href{https://github.com/jharner/rspark-tutorial/
 \end{frame}
 
 \begin{frame}[containsverbatim]
-  \frametitle{Web Servies}
+  \frametitle{Web Services}
 \textit{Web Services} is a recently introduced phrase. The \textit{Web} and the \textit{HyperText Transfer Protocol (HTTP)} that underlies the communication of data on the Web have become a vital part of our information network and day-to-day environment. Thus, being able to access various forms of data using HTTP is an important facility in a general programming language.\\
 \vspace{0.5 cm}
 The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m2_data_sources/s5_web/web.Rmd}{here}.
@@ -265,7 +272,7 @@ The notes for this section are \href{https://github.com/jharner/rspark-tutorial/
   \frametitle{Data Manipulation}
 This section explores the main functions in `dplyr` which Hadley Wickham describes as a \textit{grammar of data manipulation}---the counterpoint to his \textit{grammar of graphics} in \texttt{ggplot2}\\
 \vspace{0.5 cm}
-The \texttt{dplyr} package is part of the `tidyverse`. It provides a grammar of data maniputation using a set of verbs for transforming tibbles (or data frames) in R or across various backend data sources.\\
+The \texttt{dplyr} package is part of the `tidyverse`. It provides a grammar of data manipulation using a set of verbs for transforming tibbles (or data frames) in R or across various backend data sources.\\
 \vspace{0.5 cm}
 The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m3_data_transformations/s1_data_manipulation/dmanipulation.Rmd}{here}.
 \end{frame}
@@ -316,30 +323,30 @@ Spark is a general-purpose cluster computing system, which: has high-level APIs 
 \vspace{0.5 cm}
 Spark provides a unified framework to manage big data processing with a variety of data sets that are diverse in nature, e.g., text data, graph data, etc., as well as the source of data (batch vs. real-time streaming data).\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m5_spark/s1_spark_basics}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m5_spark/s1_spark_basics/basics.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Spark dplyr}
-\texttt{dplyr} is an R package for performing operations on structured data. The data is always a table-like structure, i.e., an R \texttt{data.frame} or tibble), a SQL data table, or a Spark DataFrame among others. Ideally, the structure should be in tidy form, i.e., each row is an observation and each column is a variable. Tidy data matches its semantics with how it is stored.\\
+\texttt{dplyr} is an R package for performing operations on structured data. The data is always a table-like structure, i.e., an R \texttt{data.frame} or tibble, a SQL data table, or a Spark DataFrame among others. Ideally, the structure should be in tidy form, i.e., each row is an observation and each column is a variable. Tidy data matches its semantics with how it is stored.\\
 \vspace{0.5 cm}
-Besides providing functions for manipulating data frames in R, \texttt{dplyr} forms an interface for manipulating DataFrames directly in Spark using R. The user can performs operations on Spark DataFrames such as: selecting, filtering, and aggregating; performing joins.\\
+Besides providing functions for manipulating data frames in R, \texttt{dplyr} forms an interface for manipulating DataFrames directly in Spark using R. The user can performs operations on Spark DataFrames such as selecting, filtering, and aggregating.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m5_spark/s2_sparklyr_dplyr}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m5_spark/s2_sparklyr_dplyr/dplyr.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Spark DataFrame SQL}
 In the last section, \texttt{dplyr} verbs were used to manipulate a Spark DataFrame. However, we often have multiple related Spark tables which we need to combine prior to performing data manipulations. This section shows you how to join two Spark DataFrames using \texttt{dplyr}.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m5_spark/s3_sparklyr_sql}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m5_spark/s3_sparklyr_sql/sql.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Spark Apply}
 \texttt{sparklyr} provides support to run arbitrary R code at scale within Spark through the function \texttt{spark\_apply}. Thus, most of R's functionality can be distributed across an R cluster. Apache Spark, even with Spark Packages, has a limited range of functions available.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m5_spark/s4_sparklyr_apply}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m5_spark/s4_sparklyr_apply/apply.Rmd}{here}.
 \end{frame}
 
 \section{Supervised Learning}
@@ -348,21 +355,21 @@ The notes for this section are \href{https://github.com/jharner/rspark-tutorial/
   \frametitle{Linear Regression}
 \textit{Linear regression} models the linear relationship between an outcome variable (dependent or response variable) and one or more explanatory variables (predictors, independent variables, or features). Both the outcome and predictor variables are numeric. \textit{Linearity} is an assumption that should be checked. In some cases it is difficult to assume linearity except locally.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m6_supervised_learning/s1_regression_basics}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s1_regression_basics/regression.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Regularization Basics}
 The loss function, i.e., RSS for regression, can be generalized, e.g., by regularization. We now consider fitting all $p$ predictors by constraining, (regularizing) the coefficients, i.e., shrinking the coefficients towards 0. This can often greatly reduce the coefficient variances without appreciably increasing the bias.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m6_supervised_learning/s2_regularization_basics}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s2_regularization_basics/regularization.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Linear Regression Example}
 This section illustrates the process of building a concrete compressive strength regression model using Spark.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m6_supervised_learning/s3_slump_test}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s3_slump_test/slump.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -371,21 +378,21 @@ In many situations the outcome variable is one of k levels or groups. In this se
 \vspace{0.5 cm}
 We illustrate logistic regression modeling using the Wine Quality Data Set from the UCI Machine Learning Repository. We analyze the red variant of the Portuguese "Vinho Verde" wine.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s4_logistic_regr_basics}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s4_logistic_regr_basics/logistic.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Regularized Logistic Regression}
 We revisit the Wine Quality data set using regularization with Spark models.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m6_supervised_learning/s5_wine_quality}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s5_wine_quality/wine_quality.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{Tree-based Models}
 This section compares 6 classification models, including tree-based models, using Spark.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m6_supervised_learning/s6_tree_models}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m6_supervised_learning/s6_tree_models/tree_models.Rmd}{here}.
 \end{frame}
 
 \section{Unsupervised Learning}
@@ -394,14 +401,14 @@ The notes for this section are \href{https://github.com/jharner/rspark-tutorial/
   \frametitle{Principal Component Analysis}
 Principal Component Analysis (PCA) is used to determine the structure of a multivariate data set composed of numerical variables. Specifically, the most important purposes of PCA are: to reduce the dimensionality of variable space;   to find the linear combinations of the original variables which account for most of the variation in the multivariate system.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m7_unsupervised_learning/s1_pca}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m7_unsupervised_learning/s1_pca/pca.Rmd}{here}.
 \end{frame}
 
 \begin{frame}[containsverbatim]
   \frametitle{K-means Clustering}
 The objective of k-means is to group or cluster similar objects together. For example, suppose you have users and you know the age, gender, income, and household size for each user. We then want to segment or cluster the data. You may or may not have an \textit{a priori} notion concerning the number of groups k.\\
 \vspace{0.5 cm}
-The notes for this section are \href{https://github.com/jharner/rspark-tutorial/tree/master/m7_unsupervised_learning/s2_kmeans}{here}.
+The notes for this section are \href{https://github.com/jharner/rspark-tutorial/blob/master/m7_unsupervised_learning/s2_kmeans/kmeans.Rmd}{here}.
 \end{frame}
 
 \end{document}
